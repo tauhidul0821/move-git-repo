@@ -1,1 +1,1 @@
-var a = 'this is sample component';
+var myString = "This is a sample String";

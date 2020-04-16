@@ -32,12 +32,12 @@ const generateFunctions = {
         fs.mkdir(`${cwd}/${dir}`, { recursive: true }, (error) => {
           if (error) {
             console.error(error);
-          }else{
-            fs.writeFileSync(`${cwd}/${dir}` + `/${file_name}.ts`, sampleComponent);
+          } else {
+            fs.writeFileSync(`${cwd}/${dir}` + `/${file_name}.ts`, `${sampleComponent.toString()}`);
           }
         });
-      }else if(fs.existsSync(dir)){
-        fs.writeFileSync(`${cwd}/${dir}` + `/${file_name}.ts`, sampleComponent);
+      } else if (fs.existsSync(dir)) {
+        fs.writeFileSync(`${cwd}/${dir}` + `/${file_name}.ts`, `${sampleComponent.toString()}`);
 
       }
 
@@ -46,9 +46,9 @@ const generateFunctions = {
 
 
     } else {
-      console.log('no need to create folder');
-      fs.writeFileSync(cwd + `/${file_name}.ts`, sampleComponent);
-      // console.log('file name and location', file_name)
+      // console.log('no need to create folder');
+      // fs.writeFileSync(cwd + `/${file_name}.ts`, `${sampleComponent.toString()}`);
+      console.log(`${JSON.stringify(sampleComponent)}`) //JSON.stringify(userDate)
     }
   },
   genTemplate() {
