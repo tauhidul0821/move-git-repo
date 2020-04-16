@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const componentRegExp = /YourComponentName/g;
 
 const dirnames = {
   sync: 'createDir',
@@ -14,4 +15,6 @@ const filePath = path.join(cwd,'/generateSample/component/sample.component');
 
 const originalContent = fs.readFileSync(filePath, "utf8");
 
-fs.writeFileSync(`${dirnames.sync}/zfile.js`,`${originalContent.toString()}`);
+const replacedContent = originalContent.replace(componentRegExp, "Gnenerated-File name");
+
+fs.writeFileSync(`${dirnames.sync}/zfile.js`,replacedContent);
