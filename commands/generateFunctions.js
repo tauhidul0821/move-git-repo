@@ -38,7 +38,7 @@ const generateFunctions = {
             const sampleComponentPath = path.join(componentPath, "/sample.component");
             const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
             // replace content
-            const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
+            const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
             fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
           }
         });
@@ -46,7 +46,7 @@ const generateFunctions = {
         const sampleComponentPath = path.join(componentPath, "/sample.component");
         const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
         // replace content
-        const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
+        const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
         fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
 
       }
