@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require("path");
 const sampleComponent = require('../generateSample/component/sampleComponent');
+const componentPath = path.join(__dirname, '../generateSample/component');
+const componentRegExp = /YourComponentName/g;
 // const sampletemplate = require('../generateSample/template/sampleTemplate.js');
 
 const generateFunctions = {
@@ -33,22 +35,27 @@ const generateFunctions = {
           if (error) {
             console.error(error);
           } else {
-            fs.writeFileSync(`${cwd}/${dir}` + `/${file_name}.ts`, `${sampleComponent.toString()}`);
+            const sampleComponentPath = path.join(componentPath, "/sample.component");
+            const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
+            // replace content
+            const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
+            fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
           }
         });
       } else if (fs.existsSync(dir)) {
-        fs.writeFileSync(`${cwd}/${dir}` + `/${file_name}.ts`, `${sampleComponent.toString()}`);
+        const sampleComponentPath = path.join(componentPath, "/sample.component");
+        const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
+        // replace content
+        const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
+        fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
 
       }
-
-
-
-
-
     } else {
-      // console.log('no need to create folder');
-      // fs.writeFileSync(cwd + `/${file_name}.ts`, `${sampleComponent.toString()}`);
-      console.log(`${JSON.stringify(sampleComponent)}`) //JSON.stringify(userDate)
+      const sampleComponentPath = path.join(componentPath, "/sample.component");
+      const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
+      // replace content
+      const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
+      fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
     }
   },
   genTemplate() {
