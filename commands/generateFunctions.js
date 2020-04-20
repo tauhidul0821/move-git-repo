@@ -3,6 +3,8 @@ const path = require("path");
 const sampleComponent = require('../generateSample/component/sampleComponent');
 const componentPath = path.join(__dirname, '../generateSample/component');
 const templatePath = path.join(__dirname, '../generateSample/template');
+const formComponent = path.join(__dirname, '../generateSample/formComponent');
+
 const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
 
@@ -95,17 +97,25 @@ const generateFunctions = {
     const cwd = process.cwd(); // find current working directory 
     const thirdprocess = process.argv; // find name of component
     console.log(cwd);
-    console.log(thirdprocess);
+    fileNamewithPath = process.argv[3];
+    console.log('file name ->', fileNamewithPath);
+    console.log('form property ->', thirdprocess.slice(4, thirdprocess.length));
 
-    /**
-     * 
-     * 
-     * 
-    const sampleTemplatePath = path.join(templatePath, "/sampleTemplateFile.template");
-    const originalContent = fs.readFileSync(sampleTemplatePath, "utf8");
+    //Path 
+    const sampleComponentPath = path.join(formComponent, "/sampleComponent.component");
+    const sampleStylePath = path.join(formComponent, "/sampleStyle.style");
+    const sampleTemplatePath = path.join(formComponent, "/sampleTemplate.template");
+    const sampleTestPath = path.join(formComponent, "/sampleTest.test");
 
-    if (file_name.includes("/")) {
-      var d = file_name.split("/")
+    //Original Content
+    const originalContentComponent = fs.readFileSync(sampleComponentPath, "utf8");
+    const originalContentStyle = fs.readFileSync(sampleStylePath, "utf8");
+    const originalContentTemplate = fs.readFileSync(sampleTemplatePath, "utf8");
+    const originalContentTest = fs.readFileSync(sampleTestPath, "utf8");
+
+    if (fileNamewithPath.includes("/")) {
+      console.log('need to create folder');
+      var d = fileNamewithPath.split("/")
       var folder_name_prefix = d.slice(0, d.length - 1);
       var dir = folder_name_prefix.join('/');
       var fileName = d[d.length - 1];
@@ -117,26 +127,37 @@ const generateFunctions = {
             console.error(error);
           } else {
             // replace content
-            const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
-            fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+            // const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
+
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}.ts`, originalContentComponent);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}.css`, originalContentStyle);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}.html`, originalContentTemplate);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}.test.ts`, originalContentTest);
+
             console.log('Created successfuly');
           }
         });
       } else if (fs.existsSync(dir)) {
         // replace content
-        const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
-        fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.ts`, originalContentComponent);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.css`, originalContentStyle);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.html`, originalContentTemplate);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.test.ts`, originalContentTest);
+
         console.log('Created successfuly');
 
       }
     } else {
       // replace content
-      const replacedContent = originalContent.replace(templateRegExp, `${file_name}`);
-      fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
-      console.log('Created successfuly');
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.ts`, originalContentComponent);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.css`, originalContentStyle);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.html`, originalContentTemplate);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}.test.ts`, originalContentTest);
+
+        console.log('Created successfuly');
     }
-    
-     */
+
+
   }
 }
 module.exports = generateFunctions;
