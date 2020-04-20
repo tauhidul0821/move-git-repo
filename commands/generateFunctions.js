@@ -21,13 +21,10 @@ const generateFunctions = {
     */
 
     if (file_name.includes("/")) {
-      console.log('user need create folder ');
       var d = file_name.split("/")
       var folder_name_prefix = d.slice(0, d.length - 1);
       var dir = folder_name_prefix.join('/');
-      console.log('create_folder ->', dir);
       var fileName = d[d.length - 1];
-      console.log('fileName -> ', fileName);
 
       // folder create success
       if (!fs.existsSync(dir)) {
@@ -38,18 +35,21 @@ const generateFunctions = {
             // replace content
             const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
             fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
+            console.log('Created successfuly');
           }
         });
       } else if (fs.existsSync(dir)) {
         // replace content
         const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
         fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
+        console.log('Created successfuly');
 
       }
     } else {
       // replace content
       const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
       fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
+      console.log('Created successfuly');
     }
   },
   genTemplate() {
@@ -60,13 +60,10 @@ const generateFunctions = {
     const originalContent = fs.readFileSync(sampleTemplatePath, "utf8");
 
     if (file_name.includes("/")) {
-      console.log('user need create folder ');
       var d = file_name.split("/")
       var folder_name_prefix = d.slice(0, d.length - 1);
       var dir = folder_name_prefix.join('/');
-      console.log('create_folder ->', dir);
       var fileName = d[d.length - 1];
-      console.log('fileName -> ', fileName);
 
       // folder create success
       if (!fs.existsSync(dir)) {
@@ -77,20 +74,69 @@ const generateFunctions = {
             // replace content
             const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
             fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+            console.log('Created successfuly');
           }
         });
       } else if (fs.existsSync(dir)) {
         // replace content
         const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
         fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+        console.log('Created successfuly');
 
       }
-
     } else {
       // replace content
       const replacedContent = originalContent.replace(templateRegExp, `${file_name}`);
       fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+      console.log('Created successfuly');
     }
+  },
+  genFormComponent() {
+    const cwd = process.cwd(); // find current working directory 
+    const thirdprocess = process.argv; // find name of component
+    console.log(cwd);
+    console.log(thirdprocess);
+
+    /**
+     * 
+     * 
+     * 
+    const sampleTemplatePath = path.join(templatePath, "/sampleTemplateFile.template");
+    const originalContent = fs.readFileSync(sampleTemplatePath, "utf8");
+
+    if (file_name.includes("/")) {
+      var d = file_name.split("/")
+      var folder_name_prefix = d.slice(0, d.length - 1);
+      var dir = folder_name_prefix.join('/');
+      var fileName = d[d.length - 1];
+
+      // folder create success
+      if (!fs.existsSync(dir)) {
+        fs.mkdir(`${cwd}/${dir}`, { recursive: true }, (error) => {
+          if (error) {
+            console.error(error);
+          } else {
+            // replace content
+            const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
+            fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+            console.log('Created successfuly');
+          }
+        });
+      } else if (fs.existsSync(dir)) {
+        // replace content
+        const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
+        fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+        console.log('Created successfuly');
+
+      }
+    } else {
+      // replace content
+      const replacedContent = originalContent.replace(templateRegExp, `${file_name}`);
+      fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
+      console.log('Created successfuly');
+    }
+    
+     */
   }
 }
 module.exports = generateFunctions;

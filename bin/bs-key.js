@@ -12,4 +12,9 @@ program
   .description('create template')
   .action(gen.genTemplate);
 
+program
+  .command('fc')
+  .description('generate form component')
+  .action(gen.genFormComponent);
+
 program.parse(process.argv);
