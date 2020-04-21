@@ -1,5 +1,6 @@
 const fs = require('fs');
-const path = require("path");
+const path = require('path');
+const colors = require('colors');
 const sampleComponent = require('../generateSample/component/sampleComponent');
 const componentPath = path.join(__dirname, '../generateSample/component');
 const templatePath = path.join(__dirname, '../generateSample/template');
@@ -37,21 +38,21 @@ const generateFunctions = {
             // replace content
             const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
             fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
-            console.log('Created successfuly');
+            console.log('Created successfuly'.green);
           }
         });
       } else if (fs.existsSync(dir)) {
         // replace content
         const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
         fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
-        console.log('Created successfuly');
+        console.log('Created successfuly'.green);
 
       }
     } else {
       // replace content
       const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
       fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
-      console.log('Created successfuly');
+      console.log('Created successfuly'.green);
     }
   },
   genTemplate() {
@@ -76,21 +77,21 @@ const generateFunctions = {
             // replace content
             const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
             fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
-            console.log('Created successfuly');
+            console.log('Created successfuly'.green);
           }
         });
       } else if (fs.existsSync(dir)) {
         // replace content
         const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
         fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
-        console.log('Created successfuly');
+        console.log('Created successfuly'.green);
 
       }
     } else {
       // replace content
       const replacedContent = originalContent.replace(templateRegExp, `${file_name}`);
       fs.writeFileSync(`${cwd}/${file_name}.html`, replacedContent);
-      console.log('Created successfuly');
+      console.log('Created successfuly'.green);
     }
   },
   genFormComponent() {
@@ -134,7 +135,7 @@ const generateFunctions = {
             fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
             fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
-            console.log('Created successfuly');
+            console.log('Created successfuly'.green);
           }
         });
       } else if (fs.existsSync(dir)) {
@@ -144,7 +145,7 @@ const generateFunctions = {
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
-        console.log('Created successfuly');
+        console.log('Created successfuly'.green);
 
       }
     } else {
@@ -154,7 +155,7 @@ const generateFunctions = {
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
-        console.log('Created successfuly');
+        console.log('Created successfuly'.green);
     }
 
 
