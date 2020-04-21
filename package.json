@@ -1,18 +1,27 @@
 {
   "name": "bs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Brain Station Code Generator",
+  "main": "./bin/bs.js",
   "bin": "./bin/bs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "brain station 23",
+    "custome",
+    "code",
+    "generator"
+  ],
+  "author": "Tauhidul Islam",
+  "license": "MIT",
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^5.0.0",
     "inquirer": "^7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tauhidbs23/bsCodeGenerator"
   }
 }

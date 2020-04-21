@@ -8,6 +8,7 @@ const formComponent = path.join(__dirname, '../generateSample/formComponent');
 
 const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
+colors.enable();
 
 const generateFunctions = {
   genComponent() {
