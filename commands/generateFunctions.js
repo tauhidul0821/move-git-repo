@@ -122,37 +122,37 @@ const generateFunctions = {
 
       // folder create success
       if (!fs.existsSync(dir)) {
-        fs.mkdir(`${cwd}/${dir}`, { recursive: true }, (error) => {
+        fs.mkdir(`${cwd}/${fileNamewithPath}/${dir}`, { recursive: true }, (error) => {
           if (error) {
             console.error(error);
           } else {
             // replace content
             // const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
 
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}.ts`, originalContentComponent);
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}.css`, originalContentStyle);
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}.html`, originalContentTemplate);
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}.test.ts`, originalContentTest);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
+            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
             console.log('Created successfuly');
           }
         });
       } else if (fs.existsSync(dir)) {
         // replace content
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.ts`, originalContentComponent);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.css`, originalContentStyle);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.html`, originalContentTemplate);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.test.ts`, originalContentTest);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
         console.log('Created successfuly');
 
       }
     } else {
       // replace content
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.ts`, originalContentComponent);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.css`, originalContentStyle);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.html`, originalContentTemplate);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}.test.ts`, originalContentTest);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
+        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
         console.log('Created successfuly');
     }
