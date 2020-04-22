@@ -8,6 +8,7 @@ const formComponent = path.join(__dirname, '../generateSample/formComponent');
 
 const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
+
 colors.enable();
 
 const generateFunctions = {
@@ -101,7 +102,8 @@ const generateFunctions = {
     console.log(cwd);
     fileNamewithPath = process.argv[3];
     console.log('file name ->', fileNamewithPath);
-    console.log('form property ->', thirdprocess.slice(4, thirdprocess.length));
+    const formProperty = thirdprocess.slice(4, thirdprocess.length);
+    console.log('form formProperty ->', formProperty);
 
     //Path 
     const sampleComponentPath = path.join(formComponent, "/sampleComponent.component");
@@ -123,7 +125,7 @@ const generateFunctions = {
       var fileName = d[d.length - 1];
 
       // folder create success
-      if (!fs.existsSync(dir)) {
+      /*if (!fs.existsSync(dir)) {
         fs.mkdir(`${cwd}/${fileNamewithPath}/${dir}`, { recursive: true }, (error) => {
           if (error) {
             console.error(error);
@@ -148,15 +150,32 @@ const generateFunctions = {
 
         console.log('Created successfuly'.green);
 
-      }
+      }*/
     } else {
+      const firstargv = 'name\n';
+      const secondargv = 'age';
+
+      const proceproperty = [
+        'name \r\n',
+        'age \r\n',
+        'cgpa \r\n'
+      ]
+
+      console.log('no need to create folder');
+      proceproperty.forEach(property => {
+        fs.appendFile(`${cwd}/init.txt`, property, function (err) {
+          if (err) throw err;
+        });
+      });
+
+      /*
       // replace content
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
         fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
 
-        console.log('Created successfuly'.green);
+        console.log('Created successfuly'.green);*/
     }
 
 
