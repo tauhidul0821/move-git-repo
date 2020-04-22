@@ -105,6 +105,13 @@ const generateFunctions = {
     const formProperty = thirdprocess.slice(4, thirdprocess.length);
     console.log('form formProperty ->', formProperty);
 
+    // generateFormComponentHtml(fileNamewithPath,formProperty);
+
+
+    const CreateFiles = fs.createWriteStream(`${cwd}/ ${fileNamewithPath}.html`, {
+      flags: 'a'
+    })
+
     //Path 
     const sampleComponentPath = path.join(formComponent, "/sampleComponent.component");
     const sampleStylePath = path.join(formComponent, "/sampleStyle.style");
@@ -125,7 +132,7 @@ const generateFunctions = {
       var fileName = d[d.length - 1];
 
       // folder create success
-      /*if (!fs.existsSync(dir)) {
+      if (!fs.existsSync(dir)) {
         fs.mkdir(`${cwd}/${fileNamewithPath}/${dir}`, { recursive: true }, (error) => {
           if (error) {
             console.error(error);
@@ -150,35 +157,48 @@ const generateFunctions = {
 
         console.log('Created successfuly'.green);
 
-      }*/
+      }
     } else {
-      const firstargv = 'name\n';
-      const secondargv = 'age';
+      
+      const file1Path = path.join(__dirname, '../propertyReplace/first_propertyReplace');
+      const file2Path = path.join(__dirname, '../propertyReplace/middle_propertyReplace');
+      const file3Path = path.join(__dirname, '../propertyReplace/end_propertyReplace');
+      const templateRegExp = /property_ame/g;
 
-      const proceproperty = [
-        'name \r\n',
-        'age \r\n',
-        'cgpa \r\n'
-      ]
+      const originalContex1 = fs.readFileSync(file1Path, "utf8");
+      const originalContex2 = fs.readFileSync(file2Path, "utf8");
+      const originalContex3 = fs.readFileSync(file3Path, "utf8");
+      const originalContexArr = [
+        "name",
+        "age",
+        "cgpa"
+      ];
 
-      console.log('no need to create folder');
-      proceproperty.forEach(property => {
-        fs.appendFile(`${cwd}/init.txt`, property, function (err) {
-          if (err) throw err;
-        });
+
+      CreateFiles.write(`${originalContex1}` + '\r\n')
+      formProperty.forEach(ele => {
+        const replacedContent = originalContex2.replace(templateRegExp, ele);
+        CreateFiles.write(`${replacedContent}` + '\r\n')
       });
 
-      /*
-      // replace content
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
-
-        console.log('Created successfuly'.green);*/
+      CreateFiles.write(`${originalContex3}` + '\r\n');
+      
     }
 
 
   }
 }
 module.exports = generateFunctions;
+
+
+function generateFormComponentHtml(savePath, formProperty) {
+  console.log('savePath ->', savePath);
+  console.log('formProperty ->', formProperty);
+
+
+};
+function generateFormComponent(savePath, formProperty) {
+  console.log('savePath ->', savePath);
+  console.log('formProperty ->', formProperty);
+
+};
