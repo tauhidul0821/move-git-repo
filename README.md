@@ -30,7 +30,7 @@ bs g t name_of_template
 ### for generate form component 
 ```
 bs g fc name_of_form_component name age cgpa
-# here, name, age, cgpa is form property
+# here name, age, cgpa is form property
 ```
 
 ### for generate service

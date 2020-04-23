@@ -159,32 +159,11 @@ const generateFunctions = {
 
       }
     } else {
-      
-      const file1Path = path.join(__dirname, '../propertyReplace/first_propertyReplace');
-      const file2Path = path.join(__dirname, '../propertyReplace/middle_propertyReplace');
-      const file3Path = path.join(__dirname, '../propertyReplace/end_propertyReplace');
-      const templateRegExp = /property_ame/g;
+      generateFormComponentHtml(fileNamewithPath, formProperty);
+      generateFormComponent(fileNamewithPath, formProperty);
+      console.log('Created successfuly'.green);
 
-      const originalContex1 = fs.readFileSync(file1Path, "utf8");
-      const originalContex2 = fs.readFileSync(file2Path, "utf8");
-      const originalContex3 = fs.readFileSync(file3Path, "utf8");
-      const originalContexArr = [
-        "name",
-        "age",
-        "cgpa"
-      ];
-
-
-      CreateFiles.write(`${originalContex1}` + '\r\n')
-      formProperty.forEach(ele => {
-        const replacedContent = originalContex2.replace(templateRegExp, ele);
-        CreateFiles.write(`${replacedContent}` + '\r\n')
-      });
-
-      CreateFiles.write(`${originalContex3}` + '\r\n');
-      
     }
-
 
   }
 }
@@ -192,13 +171,64 @@ module.exports = generateFunctions;
 
 
 function generateFormComponentHtml(savePath, formProperty) {
-  console.log('savePath ->', savePath);
-  console.log('formProperty ->', formProperty);
+  // console.log('savePath ->', savePath);
+  // console.log('formProperty ->', formProperty);
+
+  const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${savePath}.html`, {
+    flags: 'a'
+  })
+
+
+  const file1Path = path.join(__dirname, '../propertyReplace/first_propertyReplace');
+  const file2Path = path.join(__dirname, '../propertyReplace/middle_propertyReplace');
+  const file3Path = path.join(__dirname, '../propertyReplace/end_propertyReplace');
+  const templateRegExp = /property_ame/g;
+
+  const originalContex1 = fs.readFileSync(file1Path, "utf8");
+  const originalContex2 = fs.readFileSync(file2Path, "utf8");
+  const originalContex3 = fs.readFileSync(file3Path, "utf8");
+  const originalContexArr = [
+    "name",
+    "age",
+    "cgpa"
+  ];
+
+
+  CreateFiles.write(`${originalContex1}` + '\r\n')
+  formProperty.forEach(ele => {
+    const replacedContent = originalContex2.replace(templateRegExp, ele);
+    CreateFiles.write(`${replacedContent}` + '\r\n')
+  });
+
+  CreateFiles.write(`${originalContex3}` + '\r\n');
+
+
 
 
 };
-function generateFormComponent(savePath, formProperty) {
-  console.log('savePath ->', savePath);
-  console.log('formProperty ->', formProperty);
+
+function generateFormComponent(pathwithFileName, formProperty) {
+  // console.log('component pathwithFileName ->', pathwithFileName);
+  // console.log('component formProperty ->', formProperty);
+
+
+
+  const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${pathwithFileName}.ts`, {
+    flags: 'a'
+  })
+
+  const componentPath = path.join(__dirname, '../generateSample/formComponent/sampleComponent.component');
+  const templateRegExp = /component_name/g;
+
+  const componentContex = fs.readFileSync(componentPath, "utf8");
+  const originalContexArr = [
+    "name",
+    "age",
+    "cgpa"
+  ];
+
+
+  const replacedContent = componentContex.replace(templateRegExp, pathwithFileName);
+  CreateFiles.write(`${replacedContent}` + '\r\n')
 
 };
