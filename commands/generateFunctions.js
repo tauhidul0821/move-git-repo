@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
+const { stringHelper } = require('../helper/stringHelper');
 const sampleComponent = require('../generateSample/component/sampleComponent');
 const componentPath = path.join(__dirname, '../generateSample/component');
 const templatePath = path.join(__dirname, '../generateSample/template');
@@ -207,6 +208,12 @@ function generateFormComponentHtml(savePath, formProperty) {
 
 };
 
+/**
+ * 1. direcory manage 
+ * 2. class name capital later er hote hobe 
+ * 3. 
+ */
+
 function generateFormComponent(pathwithFileName, formProperty) {
   // console.log('component pathwithFileName ->', pathwithFileName);
   // console.log('component formProperty ->', formProperty);
@@ -228,7 +235,21 @@ function generateFormComponent(pathwithFileName, formProperty) {
   ];
 
 
+  /**
+   * first class 
+   * 
+   * 
+   */
+  let className = pathwithFileName.replace(/[-_]/g, "class_name");
+  className = stringHelper.firstCharToUpperCase(className);
+  console.log(className.red);
+
+
   const replacedContent = componentContex.replace(templateRegExp, pathwithFileName);
-  CreateFiles.write(`${replacedContent}` + '\r\n')
+
+  const dd = replacedContent.replace(/class_name/g, className)
+
+  //pathwithFileName
+  CreateFiles.write(`${dd}` + '\r\n')
 
 };
