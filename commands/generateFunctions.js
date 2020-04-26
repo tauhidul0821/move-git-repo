@@ -247,9 +247,9 @@ function generateFormComponent(pathwithFileName, formProperty) {
 
   const replacedContent = componentContex.replace(templateRegExp, pathwithFileName);
 
-  const dd = replacedContent.replace(/class_name/g, className)
+  const printContent = replacedContent.replace(/class_name/g, className)
 
   //pathwithFileName
-  CreateFiles.write(`${dd}` + '\r\n')
+  CreateFiles.write(`${printContent}` + '\r\n')
 
 };
