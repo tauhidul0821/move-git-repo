@@ -171,40 +171,35 @@ const generateFunctions = {
 module.exports = generateFunctions;
 
 
-function generateFormComponentHtml(savePath, formProperty) {
-  // console.log('savePath ->', savePath);
-  // console.log('formProperty ->', formProperty);
+function generateFormComponentHtml(pathwithFileName, formProperty) {
+  const templateRegExp = /property_ame/g;
+  const componentRegExp = /component_name/g
 
-  const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${savePath}.html`, {
+  const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${pathwithFileName}.html`, {
     flags: 'a'
   })
 
+  const file1Path = path.join(__dirname, '../generateSample/formComponent/propertyReplace/first_propertyReplace');
+  const file2Path = path.join(__dirname, '../generateSample/formComponent/propertyReplace/middle_propertyReplace');
+  const file3Path = path.join(__dirname, '../generateSample/formComponent/propertyReplace/end_propertyReplace');
 
-  const file1Path = path.join(__dirname, '../propertyReplace/first_propertyReplace');
-  const file2Path = path.join(__dirname, '../propertyReplace/middle_propertyReplace');
-  const file3Path = path.join(__dirname, '../propertyReplace/end_propertyReplace');
-  const templateRegExp = /property_ame/g;
 
   const originalContex1 = fs.readFileSync(file1Path, "utf8");
   const originalContex2 = fs.readFileSync(file2Path, "utf8");
   const originalContex3 = fs.readFileSync(file3Path, "utf8");
-  const originalContexArr = [
-    "name",
-    "age",
-    "cgpa"
-  ];
 
 
-  CreateFiles.write(`${originalContex1}` + '\r\n')
+
+  const replacedContent = originalContex1.replace(componentRegExp, pathwithFileName);
+
+  CreateFiles.write(`${replacedContent}` + '\r\n')
+
   formProperty.forEach(ele => {
     const replacedContent = originalContex2.replace(templateRegExp, ele);
     CreateFiles.write(`${replacedContent}` + '\r\n')
   });
 
   CreateFiles.write(`${originalContex3}` + '\r\n');
-
-
-
 
 };
 
@@ -215,41 +210,37 @@ function generateFormComponentHtml(savePath, formProperty) {
  */
 
 function generateFormComponent(pathwithFileName, formProperty) {
-  // console.log('component pathwithFileName ->', pathwithFileName);
-  // console.log('component formProperty ->', formProperty);
-
-
 
   const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${pathwithFileName}.ts`, {
     flags: 'a'
   })
 
-  const componentPath = path.join(__dirname, '../generateSample/formComponent/sampleComponent.component');
-  const templateRegExp = /component_name/g;
+  const componentRegExp = /component_name/g;
+  const propertyRegExp = /property_name/g;
 
-  const componentContex = fs.readFileSync(componentPath, "utf8");
-  const originalContexArr = [
-    "name",
-    "age",
-    "cgpa"
-  ];
+  const first_property = path.join(__dirname, '../generateSample/formComponent/componentReplace/first_property.component');
+  const second_property = path.join(__dirname, '../generateSample/formComponent/componentReplace/second_property.component');
+  const third_property = path.join(__dirname, '../generateSample/formComponent/componentReplace/third_property.component');
+
+  const originalContex1 = fs.readFileSync(first_property, "utf8");
+  const originalContex2 = fs.readFileSync(second_property, "utf8");
+  const originalContex3 = fs.readFileSync(third_property, "utf8");
 
 
-  /**
-   * first class 
-   * 
-   * 
-   */
   let className = pathwithFileName.replace(/[-_]/g, "class_name");
   className = stringHelper.firstCharToUpperCase(className);
   console.log(className.red);
 
 
-  const replacedContent = componentContex.replace(templateRegExp, pathwithFileName);
-
+  const replacedContent = originalContex1.replace(componentRegExp, pathwithFileName);
   const printContent = replacedContent.replace(/class_name/g, className)
 
-  //pathwithFileName
   CreateFiles.write(`${printContent}` + '\r\n')
+
+  formProperty.forEach(ele => {
+    const replacedContent = originalContex2.replace(propertyRegExp, ele);
+    CreateFiles.write(`${replacedContent}` + '\r\n')
+  });
+  CreateFiles.write(`${originalContex3}` + '\r\n');
 
 };
