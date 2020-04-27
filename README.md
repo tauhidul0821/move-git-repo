@@ -3,14 +3,23 @@
 ### for run this project step by step
 ```
 git clone https://github.com/tauhidbs23/bsCodeGenerator.git
-npm install 
-npm link 
+npm install  
 ```
-## any directory write 
+
+### now anable command globaly 
+```
+npm link
+```
+### now generator work anywhare any directory 
 
 ### for generate component 
 ```
 bs g c name_of_component 
+```
+
+### or file inside folder
+```
+bs g c components/name_of_component
 ```
 
 ### for generate template 
@@ -20,6 +29,12 @@ bs g t name_of_template
 
 ### for generate form component 
 ```
-bs g fc name_of_form_component
+bs g fc name_of_form_component name age cgpa
+# here name, age, cgpa is form property
+```
+
+### for generate service
+```
+bs g s name_of_service
 ```
 

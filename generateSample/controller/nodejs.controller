@@ -1,0 +1,22 @@
+module.exports = {
+  // Get All
+  getAll(){
+
+  },
+  // Get Single
+  getById(){
+
+  },
+  // Create New 
+  create(){
+
+  },
+  // Update 
+  update(){
+
+  },
+  // Delete 
+  destroy(){
+
+  }
+};
