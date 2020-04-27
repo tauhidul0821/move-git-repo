@@ -98,72 +98,44 @@ const generateFunctions = {
     }
   },
   genFormComponent() {
-    const cwd = process.cwd(); // find current working directory 
-    const thirdprocess = process.argv; // find name of component
+    const cwd = process.cwd();
+    const thirdprocess = process.argv;
     console.log(cwd);
     fileNamewithPath = process.argv[3];
     console.log('file name ->', fileNamewithPath);
     const formProperty = thirdprocess.slice(4, thirdprocess.length);
     console.log('form formProperty ->', formProperty);
 
-    // generateFormComponentHtml(fileNamewithPath,formProperty);
-
-
-    const CreateFiles = fs.createWriteStream(`${cwd}/ ${fileNamewithPath}.html`, {
-      flags: 'a'
-    })
-
-    //Path 
-    const sampleComponentPath = path.join(formComponent, "/sampleComponent.component");
-    const sampleStylePath = path.join(formComponent, "/sampleStyle.style");
-    const sampleTemplatePath = path.join(formComponent, "/sampleTemplate.template");
-    const sampleTestPath = path.join(formComponent, "/sampleTest.test");
-
-    //Original Content
-    const originalContentComponent = fs.readFileSync(sampleComponentPath, "utf8");
-    const originalContentStyle = fs.readFileSync(sampleStylePath, "utf8");
-    const originalContentTemplate = fs.readFileSync(sampleTemplatePath, "utf8");
-    const originalContentTest = fs.readFileSync(sampleTestPath, "utf8");
-
     if (fileNamewithPath.includes("/")) {
       console.log('need to create folder');
-      var d = fileNamewithPath.split("/")
+      var d = fileNamewithPath.split("/");
       var folder_name_prefix = d.slice(0, d.length - 1);
       var dir = folder_name_prefix.join('/');
       var fileName = d[d.length - 1];
 
-      // folder create success
+
       if (!fs.existsSync(dir)) {
-        fs.mkdir(`${cwd}/${fileNamewithPath}/${dir}`, { recursive: true }, (error) => {
+
+        fs.mkdir(`${process.cwd()}/${dir}`, { recursive: true }, (error) => {
           if (error) {
             console.error(error);
           } else {
-            // replace content
-            // const replacedContent = originalContent.replace(templateRegExp, `${fileName}`);
-
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
-            fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
-
+            // TODO: try to call older function  
+            // console.log('now create file');
+            generateFormComponentHtml(`/${fileNamewithPath}`, formProperty, fileName);
+            generateFormComponent(`/${fileNamewithPath}`, formProperty, fileName);
             console.log('Created successfuly'.green);
           }
         });
       } else if (fs.existsSync(dir)) {
-        // replace content
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.ts`, originalContentComponent);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.css`, originalContentStyle);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.html`, originalContentTemplate);
-        fs.writeFileSync(`${cwd}/${fileNamewithPath}/${fileNamewithPath}.test.ts`, originalContentTest);
-
+        generateFormComponentHtml(`/${fileNamewithPath}`, formProperty, fileName);
+        generateFormComponent(`/${fileNamewithPath}`, formProperty, fileName);
         console.log('Created successfuly'.green);
-
       }
     } else {
       generateFormComponentHtml(fileNamewithPath, formProperty);
       generateFormComponent(fileNamewithPath, formProperty);
       console.log('Created successfuly'.green);
-
     }
 
   }
@@ -171,11 +143,19 @@ const generateFunctions = {
 module.exports = generateFunctions;
 
 
-function generateFormComponentHtml(pathwithFileName, formProperty) {
+function generateFormComponentHtml(pathwithFileName, formProperty, filename = false) {
   const templateRegExp = /property_ame/g;
-  const componentRegExp = /component_name/g
+  const componentRegExp = /component_name/g;
 
-  const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${pathwithFileName}.html`, {
+  let fname = pathwithFileName;
+
+  if (filename) {
+    fname = filename
+  } else {
+    fname = pathwithFileName
+  }
+
+  const CreateFiles = fs.createWriteStream(`${process.cwd()}/${pathwithFileName}.html`, {
     flags: 'a'
   })
 
@@ -190,7 +170,7 @@ function generateFormComponentHtml(pathwithFileName, formProperty) {
 
 
 
-  const replacedContent = originalContex1.replace(componentRegExp, pathwithFileName);
+  const replacedContent = originalContex1.replace(componentRegExp, fname);
 
   CreateFiles.write(`${replacedContent}` + '\r\n')
 
@@ -203,17 +183,20 @@ function generateFormComponentHtml(pathwithFileName, formProperty) {
 
 };
 
-/**
- * 1. direcory manage 
- * 2. class name capital later er hote hobe 
- * 3. 
- */
+function generateFormComponent(pathwithFileName, formProperty, filename = false) {
 
-function generateFormComponent(pathwithFileName, formProperty) {
+  let fname = pathwithFileName;
 
-  const CreateFiles = fs.createWriteStream(`${process.cwd()}/ ${pathwithFileName}.ts`, {
+  if (filename) {
+    fname = filename
+  } else {
+    fname = pathwithFileName
+  }
+
+  const CreateFiles = fs.createWriteStream(`${process.cwd()}/${pathwithFileName}.ts`, {
     flags: 'a'
   })
+
 
   const componentRegExp = /component_name/g;
   const propertyRegExp = /property_name/g;
@@ -227,12 +210,10 @@ function generateFormComponent(pathwithFileName, formProperty) {
   const originalContex3 = fs.readFileSync(third_property, "utf8");
 
 
-  let className = pathwithFileName.replace(/[-_]/g, "class_name");
+  let className = fname.replace(/[-_]/g, "class_name");
   className = stringHelper.firstCharToUpperCase(className);
-  console.log(className.red);
 
-
-  const replacedContent = originalContex1.replace(componentRegExp, pathwithFileName);
+  const replacedContent = originalContex1.replace(componentRegExp, fname);
   const printContent = replacedContent.replace(/class_name/g, className)
 
   CreateFiles.write(`${printContent}` + '\r\n')
