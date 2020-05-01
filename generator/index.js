@@ -5,9 +5,9 @@ const generateService = require('./generateService');
 const generateTemplate = require('./generateTemplate');
 
 module.exports = {
-  generateComponent,
-  generateController,
-  generateFormComponent,
-  generateService,
-  generateTemplate
+  ...generateComponent,
+  ...generateController,
+  ...generateFormComponent,
+  ...generateService,
+  ...generateTemplate
 };

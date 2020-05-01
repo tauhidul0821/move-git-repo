@@ -1,5 +1,4 @@
 const program = require('commander');
-const gen = require('../commands/generateFunctions');
 
 const { generateComponent,
   generateController,
@@ -12,17 +11,17 @@ const { generateComponent,
 program
   .command('c')
   .description('create component')
-  .action(generateComponent.generateComponent);
+  .action(generateComponent);
 
 program
   .command('t')
   .description('create template')
-  .action(generateTemplate.generateTemplate);
+  .action(generateTemplate);
 
 program
   .command('fc')
   .description('generate form component')
-  .action(generateFormComponent.generateFormComponent);
+  .action(generateFormComponent);
 
 
 program.parse(process.argv);
