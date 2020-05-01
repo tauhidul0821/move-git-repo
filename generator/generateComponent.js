@@ -57,3 +57,4 @@ function generateComponent() {
 module.exports = {
   generateComponent
 };
+

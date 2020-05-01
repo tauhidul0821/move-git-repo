@@ -10,25 +10,19 @@ const { generateComponent,
 
 
 program
-  .command('nc')
-  .description('generate form component')
-  .action(generateComponent.generateComponent);
-
-
-program
   .command('c')
   .description('create component')
-  .action(gen.genComponent);
+  .action(generateComponent.generateComponent);
 
 program
   .command('t')
   .description('create template')
-  .action(gen.genTemplate);
+  .action(generateTemplate.generateTemplate);
 
 program
   .command('fc')
   .description('generate form component')
-  .action(gen.genFormComponent);
+  .action(generateFormComponent.generateFormComponent);
 
 
 program.parse(process.argv);
