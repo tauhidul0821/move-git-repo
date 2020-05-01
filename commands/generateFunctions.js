@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
 const { stringHelper } = require('../helper/stringHelper');
-const sampleComponent = require('../generateSample/component/sampleComponent');
-const componentPath = path.join(__dirname, '../generateSample/component');
-const templatePath = path.join(__dirname, '../generateSample/template');
-const formComponent = path.join(__dirname, '../generateSample/formComponent');
+const sampleComponent = require('../sampleFile/component/sampleComponent');
+const componentPath = path.join(__dirname, '../sampleFile/component');
+const templatePath = path.join(__dirname, '../sampleFile/template');
+const formComponent = path.join(__dirname, '../sampleFile/formComponent');
 
 const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
@@ -159,9 +159,9 @@ function generateFormComponentHtml(pathwithFileName, formProperty, filename = fa
     flags: 'a'
   })
 
-  const file1Path = path.join(__dirname, '../generateSample/formComponent/propertyReplace/first_propertyReplace');
-  const file2Path = path.join(__dirname, '../generateSample/formComponent/propertyReplace/middle_propertyReplace');
-  const file3Path = path.join(__dirname, '../generateSample/formComponent/propertyReplace/end_propertyReplace');
+  const file1Path = path.join(__dirname, '../sampleFile/formComponent/propertyReplace/first_propertyReplace');
+  const file2Path = path.join(__dirname, '../sampleFile/formComponent/propertyReplace/middle_propertyReplace');
+  const file3Path = path.join(__dirname, '../sampleFile/formComponent/propertyReplace/end_propertyReplace');
 
 
   const originalContex1 = fs.readFileSync(file1Path, "utf8");
@@ -201,9 +201,9 @@ function generateFormComponent(pathwithFileName, formProperty, filename = false)
   const componentRegExp = /component_name/g;
   const propertyRegExp = /property_name/g;
 
-  const first_property = path.join(__dirname, '../generateSample/formComponent/componentReplace/first_property.component');
-  const second_property = path.join(__dirname, '../generateSample/formComponent/componentReplace/second_property.component');
-  const third_property = path.join(__dirname, '../generateSample/formComponent/componentReplace/third_property.component');
+  const first_property = path.join(__dirname, '../sampleFile/formComponent/componentReplace/first_property.component');
+  const second_property = path.join(__dirname, '../sampleFile/formComponent/componentReplace/second_property.component');
+  const third_property = path.join(__dirname, '../sampleFile/formComponent/componentReplace/third_property.component');
 
   const originalContex1 = fs.readFileSync(first_property, "utf8");
   const originalContex2 = fs.readFileSync(second_property, "utf8");
