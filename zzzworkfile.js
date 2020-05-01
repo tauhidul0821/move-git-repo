@@ -31,18 +31,26 @@
 
 
 
-function paramTest(a, b, fileName = false) {
-  let doc = '';
-  let fileNameddd = 'filename'
-  if (fileName) {
-    doc = fileName;
-    /**
-     * now here need only file name , not folder name
-     * 
-     */
-  } else {
-    doc = fileNameddd;
-  }
-  console.log(doc);
+// function paramTest(a, b, fileName = false) {
+//   let doc = '';
+//   let fileNameddd = 'filename'
+//   if (fileName) {
+//     doc = fileName;
+//     /**
+//      * now here need only file name , not folder name
+//      * 
+//      */
+//   } else {
+//     doc = fileNameddd;
+//   }
+//   console.log(doc);
+// }
+// paramTest(4, 5);
+const fs =require('fs');
+
+function createDirectory(fs,sourceDirPath,desDirPath){
+    console.log(fs,sourceDirPath,desDirPath);
+
 }
-paramTest(4, 5);
+createDirectory(fs,'sourceDirPath string','desDir path string');
+
