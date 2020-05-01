@@ -5,20 +5,12 @@ const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
 
 function generateComponent() {
-
   const cwd = process.cwd();
   const componentPath = path.join(__dirname, '../sampleFile/component');
 
   const file_name = process.argv[3];
   const sampleComponentPath = path.join(componentPath, "/sample.component");
   const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
-
-  /* 
-  jodi file name er age / [slash ] thake then cwd er sathe location concat hobe 
-  ex: bs g c components/name_of_component
-  1. if not exits components folder, create components folder
-  2. if exits components folder then create file inside components folder
-  */
 
   if (file_name.includes("/")) {
     var d = file_name.split("/")
