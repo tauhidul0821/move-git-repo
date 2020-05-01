@@ -10,4 +10,6 @@ const stringHelper = {
   }
 };
 
-module.exports = { stringHelper };
+module.exports = { 
+    stringHelper 
+};

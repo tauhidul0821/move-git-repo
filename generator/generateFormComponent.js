@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
-const { stringHelper } = require('../helper/stringHelper');
+const { stringHelper } = require('../helper');
 
-const templateRegExp = /property_ame/g;
 const componentRegExp = /component_name/g;
 const propertyRegExp = /property_name/g;
 
@@ -38,7 +37,7 @@ function generateFormComponentHtml(pathwithFileName, formProperty, filename = fa
   CreateFiles.write(`${replacedContent}` + '\r\n')
 
   formProperty.forEach(ele => {
-    const replacedContent = originalContex2.replace(templateRegExp, ele);
+    const replacedContent = originalContex2.replace(propertyRegExp, ele);
     CreateFiles.write(`${replacedContent}` + '\r\n')
   });
 
