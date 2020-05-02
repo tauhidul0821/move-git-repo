@@ -24,13 +24,4 @@ program
   .description('generate form component')
   .action(generateFormComponent);
 
-
-program
-  .command('i')
-  .description('generate form testing component')
-  .action(testingFormComponent);
-
-
-
-
 program.parse(process.argv);
