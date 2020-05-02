@@ -23,5 +23,4 @@ program
   .description('generate form component')
   .action(generateFormComponent);
 
-
 program.parse(process.argv);
