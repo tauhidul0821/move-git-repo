@@ -30,7 +30,6 @@ function generateHtml(fileName, formProperty, directoryPrefix) {
   });
 
   CreateFiles.write(`${originalContex3}` + '\r\n');
-
 };
 
 function generateComponent(fileName, formProperty, directoryPrefix) {
@@ -46,7 +45,6 @@ function generateComponent(fileName, formProperty, directoryPrefix) {
   const originalContex2 = fs.readFileSync(second_property, "utf8");
   const originalContex3 = fs.readFileSync(third_property, "utf8");
 
-
   let className = fileName.replace(/[-_]/g, "class_name");
   className = stringHelper.firstCharToUpperCase(className);
 
@@ -60,8 +58,6 @@ function generateComponent(fileName, formProperty, directoryPrefix) {
     CreateFiles.write(`${replacedContent}` + '\r\n')
   });
   CreateFiles.write(`${originalContex3}` + '\r\n');
-
-
 };
 
 
@@ -70,17 +66,12 @@ function generateFormComponent() {
   const fileName = process.argv[3];
   const formProperty = allArgv.slice(4, allArgv.length);
 
-
   if (fileName.includes("/")) {
     var d = fileName.split("/");
     var folderNamePrefix = d.slice(0, d.length - 1);
     var directory = folderNamePrefix.join('/');
     var fileNameSepareted = d[d.length - 1];
     if (!fs.existsSync(directory)) {
-      /**
-       * now create folder & file name 
-       * then call the function
-       */
       fs.mkdir(`${process.cwd()}/${directory}/${fileNameSepareted}`, { recursive: true }, (error) => {
         if (error) {
           console.error(error);
@@ -92,11 +83,6 @@ function generateFormComponent() {
       });
 
     } else if (fs.existsSync(directory)) {
-      /**
-       * now create folder as a file name
-       * then call the function
-       */
-
       fs.mkdir(`${process.cwd()}/${directory}/${fileNameSepareted}`, { recursive: true }, (error) => {
         if (error) {
           console.error(error);
@@ -109,12 +95,6 @@ function generateFormComponent() {
 
     }
   } else {
-    /**
-     * now create folder as a file name
-     * then call the function
-     */
-
-
     fs.mkdir(`${process.cwd()}/${fileName}`, { recursive: true }, (error) => {
       if (error) {
         console.error(error);
@@ -126,8 +106,6 @@ function generateFormComponent() {
     });
   }
 };
-
-
 
 module.exports = {
   generateFormComponent
