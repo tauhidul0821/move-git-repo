@@ -65,7 +65,7 @@ function generateComponent(fileName, formProperty, directoryPrefix) {
 };
 
 
-function generateFormComponent() {
+function testingFormComponent() {
   const allArgv = process.argv;
   const fileName = process.argv[3];
   const formProperty = allArgv.slice(4, allArgv.length);
@@ -128,7 +128,6 @@ function generateFormComponent() {
 };
 
 
-
 module.exports = {
-  generateFormComponent
+  testingFormComponent
 };

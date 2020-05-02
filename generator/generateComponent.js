@@ -5,7 +5,6 @@ const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
 
 function generateComponent() {
-  const cwd = process.cwd();
   const componentPath = path.join(__dirname, '../sampleFile/component');
 
   const file_name = process.argv[3];
@@ -20,28 +19,39 @@ function generateComponent() {
 
     // folder create success
     if (!fs.existsSync(dir)) {
-      fs.mkdir(`${cwd}/${dir}`, { recursive: true }, (error) => {
+      fs.mkdir(`${process.cwd()}/${dir}/${fileName}`, { recursive: true }, (error) => {
         if (error) {
           console.error(error);
         } else {
-          // replace content
           const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
-          fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
+          fs.writeFileSync(`${process.cwd()}/${dir}/${fileName}/${fileName}.js`, replacedContent);
           console.log('Created successfuly'.green);
         }
       });
+
     } else if (fs.existsSync(dir)) {
-      // replace content
-      const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
-      fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
-      console.log('Created successfuly'.green);
+
+      fs.mkdir(`${process.cwd()}/${dir}/${fileName}`, { recursive: true }, (error) => {
+        if (error) {
+          console.error(error);
+        } else {
+          const replacedContent = originalContent.replace(componentRegExp, `${fileName}`);
+          fs.writeFileSync(`${process.cwd()}/${dir}/${fileName}/${fileName}.js`, replacedContent);
+          console.log('Created successfuly'.green);
+        }
+      });
 
     }
   } else {
-    // replace content
-    const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
-    fs.writeFileSync(`${cwd}/${file_name}.js`, replacedContent);
-    console.log('Created successfuly'.green);
+    fs.mkdir(`${process.cwd()}/${file_name}`, { recursive: true }, (error) => {
+      if (error) {
+        console.error(error);
+      } else {
+        const replacedContent = originalContent.replace(componentRegExp, `${file_name}`);
+        fs.writeFileSync(`${process.cwd()}/${file_name}/${file_name}.js`, replacedContent);
+        console.log('Created successfuly'.green);
+      }
+    });
   }
 
 }
