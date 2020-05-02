@@ -4,8 +4,7 @@ const { generateComponent,
   generateController,
   generateFormComponent,
   generateService,
-  generateTemplate,
-  testingFormComponent
+  generateTemplate
 } = require('../generator');
 
 
