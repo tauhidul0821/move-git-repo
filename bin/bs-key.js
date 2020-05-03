@@ -23,4 +23,10 @@ program
   .description('generate form component')
   .action(generateFormComponent);
 
+
+program
+  .command('nc')
+  .description('generate node controller')
+  .action(generateController);
+
 program.parse(process.argv);
