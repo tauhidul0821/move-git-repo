@@ -1,8 +1,5 @@
 const _modelName_ = require('../models/_modelName_');
 
-// _modelName_ = Bootcamp
-// _property_ = bootcamp
-
 // @desc    Get all _property_s
 // @route   GET /api/v1/_property_s
 // @access  Public
@@ -34,7 +31,6 @@ exports.get_modelName_ = async (req, res, next) => {
     res.status(200).json({ success: true, data: _property_ });
   } catch (err) {
     res.status(400).json({ success: false });
-    //msg: `get a _property_ ${req.params.id}`
   }
 }
 
