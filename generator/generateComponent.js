@@ -4,12 +4,11 @@ const colors = require('colors');
 const componentRegExp = /YourComponentName/g;
 const templateRegExp = /YourTemplateName/g;
 
-function generateComponent() {
-  const componentPath = path.join(__dirname, '../sampleFile/component');
+const sampleComponentPath = path.join(__dirname, "../sampleFile/component/sample.component");
+const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
 
+function generateComponent() {
   const file_name = process.argv[3];
-  const sampleComponentPath = path.join(componentPath, "/sample.component");
-  const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
 
   if (file_name.includes("/")) {
     var d = file_name.split("/")
