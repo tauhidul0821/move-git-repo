@@ -21,6 +21,10 @@ bs g c name_of_component
 ```
 bs g c components/name_of_component
 ```
+### or create new folder 
+```
+bs g c component/feature/name_of_component
+```
 
 ### for generate template 
 ```
@@ -36,5 +40,21 @@ bs g fc name_of_form_component name age cgpa
 ### for generate service
 ```
 bs g s name_of_service
+```
+
+### for generate nodeJS controller
+```
+bs g nc name_of_nodeJS_controller
+```
+
+### for generate nodeJS model
+```
+bs g nm name_of_nodeJS_model
+```
+
+### for generate nodeJS model & controller
+```
+bs g nmc name_of_model name age cgpa
+# here name,age,cgpa,etc is model property 
 ```
 
