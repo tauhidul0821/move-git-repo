@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
 const componentRegExp = /YourComponentName/g;
-const templateRegExp = /YourTemplateName/g;
 
 const sampleComponentPath = path.join(__dirname, "../sampleFile/component/sample.component");
 const originalContent = fs.readFileSync(sampleComponentPath, "utf8");
