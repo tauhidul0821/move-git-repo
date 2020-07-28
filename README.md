@@ -58,3 +58,6 @@ bs g nmc name_of_model name age cgpa
 # here name,age,cgpa,etc is model property 
 ```
 
+- TODO: when create then update something 
+
+
