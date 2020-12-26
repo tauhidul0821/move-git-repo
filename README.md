@@ -3,35 +3,35 @@
 ### for run this project step by step
 ```
 git clone https://github.com/tauhidbs23/bsCodeGenerator.git
-npm install  
+npm install
 ```
 
-### now anable command globaly 
+### now anable command globaly
 ```
 npm link
 ```
-### now generator work anywhare any directory 
+### now generator work anywhare any directory
 
-### for generate component 
+### for generate component
 ```
-bs g c name_of_component 
+bs g c name_of_component
 ```
 
 ### or file inside folder
 ```
 bs g c components/name_of_component
 ```
-### or create new folder 
+### or create new folder
 ```
 bs g c component/feature/name_of_component
 ```
 
-### for generate template 
+### for generate template
 ```
 bs g t name_of_template
 ```
 
-### for generate form component 
+### for generate form component
 ```
 bs g fc name_of_form_component name age cgpa
 # here name, age, cgpa is form property
@@ -40,6 +40,12 @@ bs g fc name_of_form_component name age cgpa
 ### for generate service
 ```
 bs g s name_of_service
+```
+
+### for generate git Ignore file
+
+```
+bs g gi
 ```
 
 ### for generate nodeJS controller
@@ -55,9 +61,9 @@ bs g nm name_of_nodeJS_model
 ### for generate nodeJS model & controller
 ```
 bs g nmc name_of_model name age cgpa
-# here name,age,cgpa,etc is model property 
+# here name,age,cgpa,etc is model property
 ```
 
-- TODO: when create then update something 
+- TODO: when create then update something
 
 
