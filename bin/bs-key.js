@@ -4,7 +4,8 @@ const { generateComponent,
   generateController,
   generateFormComponent,
   generateService,
-  generateTemplate
+  generateTemplate,
+  generateGitIgnore
 } = require('../generator');
 
 
@@ -28,5 +29,10 @@ program
   .command('nc')
   .description('generate node controller')
   .action(generateController);
+
+program
+  .command('gi')
+  .description('generate git ignore file')
+  .action(generateGitIgnore);
 
 program.parse(process.argv);
