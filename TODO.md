@@ -6,4 +6,4 @@
 - directory manager 
 - create manager 
 - some small function manager ,ex first later capital 
-- 
+- use typescript 
