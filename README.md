@@ -66,4 +66,15 @@ bs g nmc name_of_model name age cgpa
 
 - TODO: when create then update something
 
+```
 
+as-salamu alaykum vaiya :) 
+ekta bisoy jante chacci , thanks in advance .
+
+new kono  project nile jemon project ta create hoi then npm install hoi okay, mane npm install alada dite hoi na project er vitore okay. 
+or jokhon kono cli install dei same kajtai hoi.
+apni jokhon kono npm package create korben tokhon apni chaccen ai package install korar somoy se npm install niye nibe okay , 
+eta kivabe korbo .
+
+
+```
