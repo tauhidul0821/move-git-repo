@@ -4,6 +4,7 @@ const generateFormComponent = require('./generateFormComponent');
 const generateService = require('./generateService');
 const generateTemplate = require('./generateTemplate');
 const generateGitIgnore = require('./generateGitIgnore');
+const generateAuto = require('./generateAuto');
 
 module.exports = {
   ...generateComponent,
@@ -11,5 +12,6 @@ module.exports = {
   ...generateFormComponent,
   ...generateService,
   ...generateTemplate,
-  ...generateGitIgnore
+  ...generateGitIgnore,
+  ...generateAuto
 };

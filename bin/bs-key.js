@@ -5,9 +5,11 @@ const { generateComponent,
   generateFormComponent,
   generateService,
   generateTemplate,
-  generateGitIgnore
+  generateGitIgnore,
+  generateAuto
 } = require('../generator');
 
+// import * as generate from "../generator";
 
 program
   .command('c')
@@ -34,5 +36,11 @@ program
   .command('gi')
   .description('generate git ignore file')
   .action(generateGitIgnore);
+
+
+program
+  .command('test')
+  .description('generate automatic test')
+  .action(generateAuto);
 
 program.parse(process.argv);
