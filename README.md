@@ -53,11 +53,6 @@ bs g fc name_of_form_component name age cgpa
 bs g s name_of_service
 ```
 
-### for generate git Ignore file
-
-```
-bs g gi
-```
 
 ### for generate nodeJS controller
 ```
