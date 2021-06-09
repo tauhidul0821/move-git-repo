@@ -1,0 +1,6 @@
+name1=khadija,
+name2=tuhin,
+name3=maleka,
+hi=rauf,
+hi1=alif,
+hi2=azmir
