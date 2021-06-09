@@ -12,7 +12,7 @@ function generateAuto() {
     originalContent = stringHelper.strSplitAndReplace(replaceWords,originalContent)
 
     fs.writeFileSync(`${process.cwd()}/${fileName}.js`, originalContent);
-    console.log('Created successfuly'.red);
+    console.log('Created successfuly'.green);
 }
 
 module.exports = {
