@@ -70,4 +70,8 @@ bs g nmc name_of_model name age cgpa
 # here name,age,cgpa,etc is model property
 ```
 
-- TODO: when create then update something
+# TODO 
+- when create then update something
+- create a folder name src, this folder for developer, here write 1.command,2.path,3.replica
+- write a command for rewrite in bin folder file 
+- 

@@ -1,1 +1,8 @@
-const odijf = 'rauf, That is a khadija magis string Do that foiajs tuhin asidjfoiasjf aosijdf maleka zzz7 zzz7 mamun';
+const arrObj = [{ 'bar': 'baz' }, { 'asdf': 'tuhin' }];
+
+arrObj.forEach((element, index, arrObj) => {
+    // console.log(element)
+    console.log(Object.keys(element));
+    console.log('value',element[Object.keys(element)])
+
+});

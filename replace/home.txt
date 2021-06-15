@@ -4,4 +4,5 @@ name3=maleka,
 hi=rauf,
 hi1=process.argv[4],
 hi2=process.argv[3],
+hi4=process.argv[2],
 hi3=mamun

@@ -1,0 +1,1 @@
+const odijf = 'rauf, That is a khadija magis string Do process.argv[2] that foiajs tuhin asidjfoiasjf aosijdf maleka process.argv[4] process.argv[3] mamun';
