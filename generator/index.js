@@ -5,6 +5,7 @@ const generateService = require('./generateService');
 const generateTemplate = require('./generateTemplate');
 const generateGitIgnore = require('./generateGitIgnore');
 const generateAuto = require('./generateAuto');
+const bangla = require('../src/test');
 
 module.exports = {
   ...generateComponent,
@@ -13,5 +14,6 @@ module.exports = {
   ...generateService,
   ...generateTemplate,
   ...generateGitIgnore,
-  ...generateAuto
+  ...generateAuto,
+  ...bangla
 };

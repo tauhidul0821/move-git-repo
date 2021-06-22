@@ -6,7 +6,8 @@ const { generateComponent,
   generateService,
   generateTemplate,
   generateGitIgnore,
-  generateAuto
+  generateAuto,
+  bangla
 } = require('../generator');
 
 // import * as generate from "../generator";
@@ -42,5 +43,10 @@ program
   .command('test')
   .description('generate automatic test')
   .action(generateAuto);
+
+program
+  .command('bangla')
+  .description('generate automatic test')
+  .action(bangla);
 
 program.parse(process.argv);
