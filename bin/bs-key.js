@@ -1,51 +1,13 @@
 const program = require('commander');
 
-const { generateComponent,
-  generateController,
-  generateFormComponent,
-  generateService,
-  generateTemplate,
-  generateGitIgnore,
-  generateAuto,
+const { 
   bangla
-} = require('../generator');
+} = require('../src/test');
 
 // import * as generate from "../generator";
 
 program
-  .command('c')
-  .description('create component')
-  .action(generateComponent);
-
-program
-  .command('t')
-  .description('create template')
-  .action(generateTemplate);
-
-program
-  .command('fc')
-  .description('generate form component')
-  .action(generateFormComponent);
-
-
-program
-  .command('nc')
-  .description('generate node controller')
-  .action(generateController);
-
-program
-  .command('gi')
-  .description('generate git ignore file')
-  .action(generateGitIgnore);
-
-
-program
   .command('test')
-  .description('generate automatic test')
-  .action(generateAuto);
-
-program
-  .command('bangla')
   .description('generate automatic test')
   .action(bangla);
 
