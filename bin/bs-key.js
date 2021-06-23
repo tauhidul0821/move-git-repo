@@ -1,16 +1,22 @@
 const program = require('commander');
 
-const { bangla } = require('../src/test');
-const { generateGitIgnore } = require('../src/gitIgnore');
+const { test, testCommand } = require('../src/test');
+const { generateGitIgnore,gitCommand } = require('../src/gitIgnore');
+const { generateNodeCrud,nodeCommand } = require('../src/nodeCrud');
 
 program
-  .command('gi')
+  .command(gitCommand)
   .description('generate git ignore file')
   .action(generateGitIgnore);
 
 program
-  .command('test')
+  .command(nodeCommand)
+  .description('generate nodejs CRUD system')
+  .action(generateNodeCrud);
+
+program
+  .command(testCommand)
   .description('generate automatic test')
-  .action(bangla);
+  .action(test);
 
 program.parse(process.argv);

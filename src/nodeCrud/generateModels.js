@@ -11,7 +11,7 @@ It has survived not only five centuries, but also the leap into electronic types
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum3 passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum4.
 `
 
-const fileName = `FinalTest.txt`;
+const fileName = `coursesModels.js`;
 
 const replaceWord = `
 Ipsum1=${process.argv[2]},
@@ -20,9 +20,9 @@ Ipsum3=${process.argv[3]},
 Ipsum4=Mamun
 `;
 
-const directory = `Components4/Fine`;
+const directory = `nodecrud/models`;
 
-module.exports.finalTest = () => {
+module.exports.generateModels = () => {
     create(sampleText, fileName, replaceWord, directory);
 }
 

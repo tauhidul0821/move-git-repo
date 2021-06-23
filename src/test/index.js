@@ -1,9 +1,16 @@
-const { finalTest } = require('./finalTest')
+require('colors')
+const { firstTest } = require('./firstTest')
+const { secondTest } = require('./secondFile')
 
-function bangla() {
-    finalTest();
+let testCommand = 'test' //bs g test
+async function test() {
+    await firstTest();
+    await secondTest();
+    
+    // console.log('Created successfuly'.green);
 }
 
 module.exports = {
-    bangla
+    test,
+    testCommand
 };

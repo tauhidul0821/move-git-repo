@@ -12,18 +12,18 @@ desires to obtain pain of itself, because it is pain, but because occasionally c
 occur in which toil and pain can procure him some great pleasure.
 `
 
-const fileName = `SecondFile.txt`;
+const fileName = `secondTest.txt`;
 
 const replaceWord = `
 Ipsum1=${process.argv[2]},
-Ipsum2=Khadija,
+human=Khadija,
 Ipsum3=${process.argv[3]},
 Ipsum4=Mamun
 `;
 
 const directory = `Components4/Fine`;
 
-module.exports.finalTest = () => {
+module.exports.secondTest = () => {
     create(sampleText, fileName, replaceWord, directory);
 }
 
