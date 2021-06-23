@@ -23,8 +23,6 @@ Ipsum4=Mamun
 
 const directory = `Components4/Fine`;
 
-// console.log(process.argv[2])
-
 module.exports.finalTest = () => {
     create(sampleText, fileName, replaceWord, directory);
 }

@@ -1,10 +1,12 @@
 const program = require('commander');
 
-const { 
-  bangla
-} = require('../src/test');
+const { bangla } = require('../src/test');
+const { generateGitIgnore } = require('../src/gitIgnore');
 
-// import * as generate from "../generator";
+program
+  .command('gi')
+  .description('generate git ignore file')
+  .action(generateGitIgnore);
 
 program
   .command('test')
