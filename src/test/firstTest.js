@@ -1,4 +1,4 @@
-const { create } = require('../../lib');
+const { create,separateDirAndName } = require('../../lib');
 
 const sampleText = `Lorem Ipsum1 is simply dummy text of the printing and typesetting industry. 
 
@@ -11,7 +11,11 @@ It has survived not only five centuries, but also the leap into electronic types
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum3 passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum4.
 `
 
-const fileName = `firstTest.txt`;
+const { name, dir } = separateDirAndName(process.argv[3]);
+// console.log('name ->', name)
+// console.log('dir ->', dir)
+
+const fileName = `${name}.service.js`;
 
 const replaceWord = `
 Ipsum1=${process.argv[2]},
@@ -20,7 +24,7 @@ Ipsum3=${process.argv[3]},
 Ipsum4=Mamun
 `;
 
-const directory = `Components4/Fine`;
+const directory = `${dir}`;
 
 module.exports.firstTest = () => {
     create(sampleText, fileName, replaceWord, directory);
