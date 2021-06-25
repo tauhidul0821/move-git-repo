@@ -1,4 +1,4 @@
-const { create,nameAndDirFromCmd } = require('../../lib');
+const { create, nameAndDirFromCmd,firstCharToUpperCase } = require('../../lib');
 
 const sampleText = `Lorem Ipsum1 is simply dummy text of the printing and typesetting industry. 
 
@@ -12,21 +12,22 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 `
 
 
-const replaceWord = `
-Ipsum1=${process.argv[2]},
-Ipsum2=Khadija,
-Ipsum3=${process.argv[3]},
-Ipsum4=Mamun
-`;
+
 
 const { name, dir } = nameAndDirFromCmd(process.argv[3]);
 // console.log('name ->', name)
 // console.log('dir ->', dir)
-// nameAndDirFromCmd
 
 const fileName = `${name}.service.js`;
 
 const directory = `${dir}`;
+
+const replaceWord = `
+Ipsum1=${process.argv[2]},
+Ipsum2=Khadija,
+Ipsum3=${process.argv[3]},
+Ipsum4=${firstCharToUpperCase(name)}
+`;
 
 module.exports.firstTest = () => {
     create(sampleText, fileName, replaceWord, directory);
