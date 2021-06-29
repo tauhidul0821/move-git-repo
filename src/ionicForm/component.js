@@ -22,8 +22,9 @@ export class class_name implements OnInit {
   }
   ngOnInit() {
     this.component_nameForm = this.fb.group({
-      userId: ['', []],
-      email: ['', []],
+      <loop>
+        userId: ['property', []]
+      </loop>
     });
   }
 }
@@ -40,7 +41,7 @@ const directory = `${dir}`;
 const replaceWord = `
 Ipsum1=${process.argv[2]},
 Ipsum2=Khadija,
-Ipsum3=${process.argv[3]},
+Ipsum3=${name},
 Ipsum4=${firstCharToUpperCase(name)}
 `;
 

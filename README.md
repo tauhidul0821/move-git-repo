@@ -85,3 +85,14 @@ bs g nmc name_of_model name age cgpa
 - create manager 
 - some small function manager ,ex first later capital 
 - use typescript 
+
+
+<loop-property>
+ <hi>
+
+
+</loop-property>
+
+<!-- v -->
+- vanish loop word 
+- first change then append to the list 
