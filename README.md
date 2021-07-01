@@ -70,22 +70,7 @@ bs g nmc name_of_model name age cgpa
 # here name,age,cgpa,etc is model property
 ```
 
-# TODO 
-- when create then update something
-- create a folder name src, this folder for developer, here write 1.command,2.path,3.replica
-- write a command for rewrite in bin folder file 
-- 
-
-### need to ES6 class formate 
-
-### use DRY (don't repeat yourself) 
-
-## broken into
-- directory manager 
-- create manager 
-- some small function manager ,ex first later capital 
-- use typescript 
-
 # sprint 26 works list
-- replace property static arry remove
+- replace property static arry remove (done)
 - added new line in property statement
+- remove extra comma(,) from the array, when property replace
