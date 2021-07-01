@@ -88,3 +88,4 @@ bs g nmc name_of_model name age cgpa
 
 # sprint 26 works list
 - replace property static arry remove
+- added new line in property statement
