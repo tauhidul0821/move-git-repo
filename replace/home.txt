@@ -1,7 +1,0 @@
-name1=khadija,
-name2=tuhin,
-name3=maleka,
-hi=rauf,
-hi1=process.argv[4],
-hi2=process.argv[3],
-hi3=mamun

@@ -1,46 +1,28 @@
 const program = require('commander');
 
-const { generateComponent,
-  generateController,
-  generateFormComponent,
-  generateService,
-  generateTemplate,
-  generateGitIgnore,
-  generateAuto
-} = require('../generator');
-
-// import * as generate from "../generator";
+const { test, testCommand } = require('../src/test');
+const { generateGitIgnore, gitCommand } = require('../src/gitIgnore');
+const { generateNodeCrud, nodeCommand } = require('../src/nodeCrud');
+const { generateIonicForm, ionicFormCommand } = require('../src/ionicForm');
 
 program
-  .command('c')
-  .description('create component')
-  .action(generateComponent);
-
-program
-  .command('t')
-  .description('create template')
-  .action(generateTemplate);
-
-program
-  .command('fc')
-  .description('generate form component')
-  .action(generateFormComponent);
-
-
-program
-  .command('nc')
-  .description('generate node controller')
-  .action(generateController);
-
-program
-  .command('gi')
+  .command(gitCommand)
   .description('generate git ignore file')
   .action(generateGitIgnore);
 
+program
+  .command(nodeCommand)
+  .description('generate nodejs CRUD system')
+  .action(generateNodeCrud);
 
 program
-  .command('test')
+  .command(testCommand)
   .description('generate automatic test')
-  .action(generateAuto);
+  .action(test);
+
+program
+  .command(ionicFormCommand)
+  .description('generate ionic form')
+  .action(generateIonicForm);
 
 program.parse(process.argv);
