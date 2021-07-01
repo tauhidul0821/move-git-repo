@@ -1,4 +1,4 @@
-const { create, nameAndDirFromCmd,firstCharToUpperCase } = require('../../lib');
+const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib');
 
 const sampleText = `import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -23,7 +23,7 @@ export class class_name implements OnInit {
   ngOnInit() {
     this.component_nameForm = this.fb.group({
       <loop>
-        userId: ['property', []]
+        property: ['', []]
       </loop>
     });
   }
@@ -46,6 +46,6 @@ Ipsum4=${firstCharToUpperCase(name)}
 `;
 
 module.exports.generateComponent = () => {
-    create(sampleText, fileName, replaceWord, directory);
+  create(sampleText, fileName, replaceWord, directory);
 }
 
