@@ -1,10 +1,13 @@
 const { generateComponent } = require('./component')
-// const { secondTest } = require('./secondFile')
+const { generateStyle } = require('./style');
+const { generateTemplate } = require('./template');
 
-let ionicFormCommand = 'fc' //bs g test
+let ionicFormCommand = 'fc' //bs g fc
 function generateIonicForm() {
-    console.log('now ionic form component');
     generateComponent();
+    generateTemplate();
+    generateStyle();
+
 }
 
 module.exports = {

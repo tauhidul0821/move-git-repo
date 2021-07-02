@@ -23,7 +23,7 @@ const fileName = `${name}.service.js`;
 const directory = `${dir}`;
 
 const replaceWord = `
-Ipsum1=${process.argv[2]},
+Ipsum1=Elon Musk,
 Ipsum2=Khadija,
 Ipsum3=${process.argv[3]},
 Ipsum4=${firstCharToUpperCase(name)}

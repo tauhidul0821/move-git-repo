@@ -15,7 +15,7 @@ occur in which toil and pain can procure him some great pleasure.
 const fileName = `secondTest.txt`;
 
 const replaceWord = `
-Ipsum1=${process.argv[2]},
+Ipsum1=Warren Buffett,
 human=Khadija,
 Ipsum3=${process.argv[3]},
 Ipsum4=Mamun
