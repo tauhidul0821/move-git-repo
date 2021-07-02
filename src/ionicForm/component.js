@@ -1,48 +1,42 @@
 const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib');
+const { name, dir } = nameAndDirFromCmd(process.argv[3]);
 
 const sampleText = `import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-component_name',
-  templateUrl: 'component_name.html',
-  styleUrls: ['./component_name.scss'],
+  selector: 'app-${name}',
+  templateUrl: '${name}.html',
+  styleUrls: ['./${name}.css'],
 })
-export class class_name implements OnInit {
-  component_nameForm: FormGroup;
+export class ${firstCharToUpperCase(name)} implements OnInit {
+  ${name}Form: FormGroup;
 
   constructor(
     private fb: FormBuilder
   ) {}
   async onSubmit() {
-    if (this.component_nameForm.valid) {
-      console.log(this.component_nameForm.value);
+    if (this.${name}Form.valid) {
+      console.log(this.${name}Form.value);
     }
-    this.component_nameForm.reset();
+    this.${name}Form.reset();
   }
   ngOnInit() {
-    this.component_nameForm = this.fb.group({
+    this.${name}Form = this.fb.group({
       <loop>
-        property: ['', []]
+        property: ['', []],
       </loop>
     });
   }
 }
 `
 
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
-// console.log('name ->', name)
-// console.log('dir ->', dir)
 
-const fileName = `${name}.service.js`;
+const fileName = `${name}.ts`;
 
 const directory = `${dir}`;
 
 const replaceWord = `
-Ipsum1=${process.argv[2]},
-Ipsum2=Khadija,
-Ipsum3=${name},
-Ipsum4=${firstCharToUpperCase(name)}
 `;
 
 module.exports.generateComponent = () => {
