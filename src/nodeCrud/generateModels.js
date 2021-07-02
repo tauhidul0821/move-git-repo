@@ -14,10 +14,10 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 const fileName = `coursesModels.js`;
 
 const replaceWord = `
-Ipsum1=${process.argv[2]},
-Ipsum2=Khadija,
+Ipsum1=Steve Jobs,
+Ipsum2=Bill Gates,
 Ipsum3=${process.argv[3]},
-Ipsum4=Mamun
+Ipsum4=John Doe
 `;
 
 const directory = `nodecrud/models`;

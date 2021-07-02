@@ -1,10 +1,12 @@
 const { create } = require('../../lib');
 
-const sampleText = `Generate controllers change to khadi`
+const sampleText = `Generate controllers change to Bill`
 
 const fileName = `coursesControllers.js`;
 
-const replaceWord = ``;
+const replaceWord = `
+Bill=Gates
+`;
 
 const directory = `nodecrud/controllers`;
 

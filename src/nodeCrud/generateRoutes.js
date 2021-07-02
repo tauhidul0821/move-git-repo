@@ -14,7 +14,7 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 const fileName = `coursesRoutes.js`;
 
 const replaceWord = `
-Ipsum1=${process.argv[2]},
+Ipsum1=Mark Zuckerberg,
 Ipsum2=Khadija,
 Ipsum3=${process.argv[3]},
 Ipsum4=Mamun

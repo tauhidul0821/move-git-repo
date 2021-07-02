@@ -23,54 +23,20 @@ bs g gi
 ```
 
 
-### for generate component
-```
-bs g c name_of_component
-```
-
-### or file inside folder
-```
-bs g c components/name_of_component
-```
-### or create new folder
-```
-bs g c component/feature/name_of_component
-```
-
-### for generate template
-```
-bs g t name_of_template
-```
-
 ### for generate form component
 ```
 bs g fc name_of_form_component name age cgpa
 # here name, age, cgpa is form property
 ```
 
-### for generate service
-```
-bs g s name_of_service
-```
-
-
-### for generate nodeJS controller
-```
-bs g nc name_of_nodeJS_controller
-```
-
-### for generate nodeJS model
-```
-bs g nm name_of_nodeJS_model
-```
-
 ### for generate nodeJS model & controller
 ```
-bs g nmc name_of_model name age cgpa
+bs g nodecrud name_of_model name age cgpa
 # here name,age,cgpa,etc is model property
 ```
 
 # sprint 26 works list
 - replace property static arry remove (done)
-- added new line in property statement
-- remove extra comma(,) from the array, when property replace
+- added new line in property statement (done) 
+- remove extra comma(,) from the array, when property replace (done)
+- 
