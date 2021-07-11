@@ -3,11 +3,11 @@ const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib')
 const sampleText = `/* css */
 `
 
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
+// const { name, dir } = nameAndDirFromCmd(process.argv[3]);
 
-const fileName = `${name}.css`;
+const fileName = `fff.css`;
 
-const directory = `${dir}`;
+const directory = `ccc`;
 
 const replaceWord = `
 `;

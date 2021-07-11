@@ -1,28 +1,28 @@
 const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib');
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
+// const { name, dir } = nameAndDirFromCmd(process.argv[3]);
 
 const sampleText = `import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-${name}',
-  templateUrl: '${name}.html',
-  styleUrls: ['./${name}.css'],
+  selector: 'app-kkk',
+  templateUrl: 'ccc.html',
+  styleUrls: ['./cccc.css'],
 })
-export class ${firstCharToUpperCase(name)} implements OnInit {
-  ${name}Form: FormGroup;
+export class ${firstCharToUpperCase('cccc')} implements OnInit {
+  CCCForm: FormGroup;
 
   constructor(
     private fb: FormBuilder
   ) {}
   async onSubmit() {
-    if (this.${name}Form.valid) {
-      console.log(this.${name}Form.value);
+    if (this.$Form.valid) {
+      console.log(this.{name}Form.value);
     }
-    this.${name}Form.reset();
+    this{name}Form.reset();
   }
   ngOnInit() {
-    this.${name}Form = this.fb.group({
+    this.{name}Form = this.fb.group({
       <loop>
         property: ['', []],
       </loop>
@@ -32,9 +32,9 @@ export class ${firstCharToUpperCase(name)} implements OnInit {
 `
 
 
-const fileName = `${name}.ts`;
+const fileName = `ccc.ts`;
 
-const directory = `${dir}`;
+const directory = `/kkk`;
 
 const replaceWord = `
 `;

@@ -1,7 +1,7 @@
 const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib');
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
+// const { name, dir } = nameAndDirFromCmd(process.argv[3]);
 
-const sampleText = `<form (ngSubmit)="onSubmit()" [formGroup]="${name}Form">
+const sampleText = `<form (ngSubmit)="onSubmit()" [formGroup]="bbbForm">
 <ion-list>
     <loop>
         <ion-item>
@@ -15,9 +15,9 @@ const sampleText = `<form (ngSubmit)="onSubmit()" [formGroup]="${name}Form">
 </form>
 `
 
-const fileName = `${name}.html`;
+const fileName = `ccc.html`;
 
-const directory = `${dir}`;
+const directory = `cccc`;
 
 const replaceWord = `
 `;

@@ -14,19 +14,19 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 
 
 
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
+// const { name, dir } = nameAndDirFromCmd(process.argv[3]);
 // console.log('name ->', name)
 // console.log('dir ->', dir)
 
-const fileName = `${name}.service.js`;
+const fileName = `ccc.service.js`;
 
-const directory = `${dir}`;
+const directory = `ccc`;
 
 const replaceWord = `
 Ipsum1=Elon Musk,
 Ipsum2=Khadija,
 Ipsum3=${process.argv[3]},
-Ipsum4=${firstCharToUpperCase(name)}
+Ipsum4=${firstCharToUpperCase('ccc')}
 `;
 
 exports.firstTest = function() {
