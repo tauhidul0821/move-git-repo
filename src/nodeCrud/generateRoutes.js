@@ -22,10 +22,6 @@ Ipsum4=Mamun
 
 const directory = `nodecrud/routes`;
 
-function generateRoutes(){
+exports.generateRoutes = function(){
     create(sampleText, fileName, replaceWord, directory);
 }
-
-module.exports = {
-    generateRoutes
-};

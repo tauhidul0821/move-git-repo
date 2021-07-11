@@ -22,10 +22,6 @@ Ipsum4=John Doe
 
 const directory = `nodecrud/models`;
 
-function generateModels() {
+exports.generateModels = function () {
     create(sampleText, fileName, replaceWord, directory);
 }
-
-module.exports = {
-    generateModels
-};

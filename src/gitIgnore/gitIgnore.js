@@ -798,12 +798,6 @@ MigrationBackup/
 
 const fileName = `.gitIgnore2`;
 
-function gitIgnore() {
+exports.gitIgnore = function() {
     create(sampleText, fileName);
 }
-
-module.exports = {
-    gitIgnore
-};
-
-

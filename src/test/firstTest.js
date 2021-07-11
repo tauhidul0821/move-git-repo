@@ -29,10 +29,6 @@ Ipsum3=${process.argv[3]},
 Ipsum4=${firstCharToUpperCase(name)}
 `;
 
-function firstTest() {
+exports.firstTest = function() {
     create(sampleText, fileName, replaceWord, directory);
 }
-
-module.exports = {
-    firstTest
-};
