@@ -39,7 +39,10 @@ const directory = `${dir}`;
 const replaceWord = `
 `;
 
-module.exports.generateComponent = () => {
+function generateComponent() {
   create(sampleText, fileName, replaceWord, directory);
 }
 
+module.exports = {
+  generateComponent
+};

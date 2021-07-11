@@ -10,7 +10,11 @@ Bill=Gates
 
 const directory = `nodecrud/controllers`;
 
-module.exports.generateControllers = () => {
+function generateControllers() {
     create(sampleText, fileName, replaceWord, directory);
 }
 
+
+module.exports = {
+    generateControllers
+};

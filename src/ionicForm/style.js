@@ -12,11 +12,10 @@ const directory = `${dir}`;
 const replaceWord = `
 `;
 
-module.exports.generateStyle = () => {
+function generateStyle() {
     create(sampleText, fileName, replaceWord, directory);
 }
 
-
-
-
-
+module.exports = {
+    generateStyle
+};

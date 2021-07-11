@@ -23,7 +23,11 @@ const replaceWord = `
 `;
 
 
-module.exports.generateTemplate = () => {
+function generateTemplate() {
     create(sampleText, fileName, replaceWord, directory);
 }
 
+
+module.exports = {
+    generateTemplate
+};
