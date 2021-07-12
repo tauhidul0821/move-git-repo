@@ -16,9 +16,9 @@ const fileName = `secondTest.txt`;
 
 const replaceWord = `
 Ipsum1=Warren Buffett,
-human=Khadija,
+human=John Doe,
 Ipsum3=${process.argv[3]},
-Ipsum4=Mamun
+Ipsum4=Bill
 `;
 
 const directory = `Components4/Fine`;
