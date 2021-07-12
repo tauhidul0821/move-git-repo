@@ -6,22 +6,22 @@ const { generateNodeCrud, nodeCommand } = require('../src/nodeCrud');
 const { generateIonicForm, ionicFormCommand } = require('../src/ionicForm');
 
 program
-  .command(gitCommand)
+  .command(gitCommand) // gi
   .description('generate git ignore file')
   .action(generateGitIgnore);
 
 program
-  .command(nodeCommand)
+  .command(nodeCommand) // nodecrud
   .description('generate nodejs CRUD system')
   .action(generateNodeCrud);
 
 program
-  .command(testCommand)
+  .command(testCommand) // test
   .description('generate automatic test')
   .action(test);
 
 program
-  .command(ionicFormCommand)
+  .command(ionicFormCommand) // fc
   .description('generate ionic form')
   .action(generateIonicForm);
 

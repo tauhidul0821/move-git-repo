@@ -1,5 +1,7 @@
-const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib');
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
+const { create, nameFromCmd, directoryFromCmd } = require('../../lib');
+
+const name = nameFromCmd(process.argv[3]);
+const dir = directoryFromCmd(process.argv[3]);
 
 const sampleText = `<form (ngSubmit)="onSubmit()" [formGroup]="${name}Form">
 <ion-list>
@@ -23,7 +25,6 @@ const replaceWord = `
 `;
 
 
-module.exports.generateTemplate = () => {
+exports.generateTemplate = function () {
     create(sampleText, fileName, replaceWord, directory);
 }
-

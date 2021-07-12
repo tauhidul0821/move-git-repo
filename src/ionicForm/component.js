@@ -1,5 +1,6 @@
-const { create, nameAndDirFromCmd, firstCharToUpperCase } = require('../../lib');
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
+const { create, firstCharToUpperCase, nameFromCmd, directoryFromCmd } = require('../../lib');
+const name = nameFromCmd(process.argv[3]);
+const dir = directoryFromCmd(process.argv[3]);
 
 const sampleText = `import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -39,7 +40,6 @@ const directory = `${dir}`;
 const replaceWord = `
 `;
 
-module.exports.generateComponent = () => {
+exports.generateComponent = function () {
   create(sampleText, fileName, replaceWord, directory);
 }
-

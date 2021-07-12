@@ -1,4 +1,4 @@
-const { create, nameAndDirFromCmd,firstCharToUpperCase } = require('../../lib');
+const { create, firstCharToUpperCase, nameFromCmd, directoryFromCmd } = require('../../lib');
 
 const sampleText = `Lorem Ipsum1 is simply dummy text of the printing and typesetting industry. 
 
@@ -11,12 +11,8 @@ It has survived not only five centuries, but also the leap into electronic types
 It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum3 passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum4.
 `
 
-
-
-
-const { name, dir } = nameAndDirFromCmd(process.argv[3]);
-// console.log('name ->', name)
-// console.log('dir ->', dir)
+const name = nameFromCmd(process.argv[2]);
+const  dir  = directoryFromCmd(process.argv[2]);
 
 const fileName = `${name}.service.js`;
 
@@ -24,12 +20,11 @@ const directory = `${dir}`;
 
 const replaceWord = `
 Ipsum1=Elon Musk,
-Ipsum2=Khadija,
-Ipsum3=${process.argv[3]},
+Ipsum2=John Doe,
+Ipsum3=${process.argv[2]},
 Ipsum4=${firstCharToUpperCase(name)}
 `;
 
-module.exports.firstTest = () => {
+exports.firstTest = function () {
     create(sampleText, fileName, replaceWord, directory);
 }
-
