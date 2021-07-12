@@ -4,7 +4,6 @@ const { generateRoutes } = require('./generateRoutes')
 
 let nodeCommand = 'nodecrud'
 function generateNodeCrud() {
-    console.log('nodeCrud: ')
     generateControllers();
     generateModels();
     generateRoutes();

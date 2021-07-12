@@ -4,7 +4,6 @@ const { generateTemplate } = require('./template');
 
 let ionicFormCommand = 'fc' //bs g fc
 function generateIonicForm() {
-    console.log('ionic form:  ')
     generateComponent();
     generateTemplate();
     generateStyle();
