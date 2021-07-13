@@ -34,9 +34,3 @@ bs g fc name_of_form_component name age cgpa
 bs g nodecrud name_of_model name age cgpa
 # here name,age,cgpa,etc is model property
 ```
-
-# sprint 26 works list
-- replace property static arry remove (done)
-- added new line in property statement (done) 
-- remove extra comma(,) from the array, when property replace (done)
-- 
