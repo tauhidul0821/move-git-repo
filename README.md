@@ -34,3 +34,10 @@ bs g fc name_of_form_component name age cgpa
 bs g nodecrud name_of_model name age cgpa
 # here name,age,cgpa,etc is model property
 ```
+
+### also you can added type 
+```
+bs g nodecrud person name:String age:Number cgpa:Number
+# here name & number is type of propertys
+
+```
