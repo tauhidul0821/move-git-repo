@@ -1,29 +1,28 @@
-const { create } = require('../../lib');
+const { create, nameFromCmd,firstCharToUpperCase } = require('../../lib');
+const name = nameFromCmd(process.argv[3]);
 
 const sampleText = `
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
-const BootCampSchema = new mongoose.Schema({
+const ${firstCharToUpperCase(name)}Schema = new mongoose.Schema({
   <loop>
     property: {
        type: typeName
     },
    </loop>
 });
+
+module.exports = mongoose.model('${firstCharToUpperCase(name)}', ${firstCharToUpperCase(name)}Schema)
 `
 
-const fileName = `coursesModels.js`;
+const fileName = `${name}Models.js`;
 
 const replaceWord = `
-Ipsum1=Steve Jobs,
-Ipsum2=Bill Gates,
-Ipsum3=${process.argv[3]},
-Ipsum4=John Doe
 `;
 
 const directory = `nodecrud/models`;
 
 exports.generateModels = function () {
-    create(sampleText, fileName, replaceWord, directory);
+   create(sampleText, fileName, replaceWord, directory);
 }

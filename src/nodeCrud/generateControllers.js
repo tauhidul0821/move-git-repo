@@ -1,8 +1,10 @@
-const { create } = require('../../lib');
+const { create, nameFromCmd } = require('../../lib');
+
+const name = nameFromCmd(process.argv[3]);
 
 const sampleText = `Generate controllers change to Bill`
 
-const fileName = `coursesControllers.js`;
+const fileName = `${name}Controllers.js`;
 
 const replaceWord = `
 Bill=Gates

@@ -1,3 +1,4 @@
+'use strict';
 const program = require('commander');
 
 const { test, testCommand } = require('../src/test');
