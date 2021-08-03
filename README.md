@@ -35,8 +35,35 @@ bs g nodecrud name_of_model name age cgpa
 # here name,age,cgpa,etc is model property
 ```
 
-# sprint 26 works list
-- replace property static arry remove (done)
-- added new line in property statement (done) 
-- remove extra comma(,) from the array, when property replace (done)
-- 
+### also you can added type 
+```
+bs g nodecrud person name:String age:Number cgpa:Number
+# here name & number is type of propertys
+
+```
+
+# how to create your own code 
+- 1. inside src folder create a folder 
+- 2. inside folder create a file index.js
+- 3. write a function and a command and export it like this 
+```js
+let testCommand = 'test' //bs g test
+function test() {
+
+}
+
+module.exports = {
+    test,
+    testCommand
+};
+```
+- 4. now import it on bs-key.js file and added on program object like this
+```js
+program
+  .command(testCommand) // test
+  .description('generate automatic test')
+  .action(test);
+```
+
+- 5. now in src folder that you create 
+- 6. 

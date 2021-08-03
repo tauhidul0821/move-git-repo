@@ -1,27 +1,28 @@
-const { create } = require('../../lib');
+const { create, nameFromCmd,firstCharToUpperCase } = require('../../lib');
+const name = nameFromCmd(process.argv[3]);
 
-const sampleText = `Lorem Ipsum1 is simply dummy text of the printing and typesetting industry. 
+const sampleText = `
+const mongoose = require('mongoose');
+const slugify = require('slugify');
 
-Lorem Ipsum2 has been the industry's standard dummy text ever since the 1500s, 
+const ${firstCharToUpperCase(name)}Schema = new mongoose.Schema({
+  <loop>
+    property: {
+       type: typeName
+    },
+   </loop>
+});
 
-when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-
-It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum3 passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum4.
+module.exports = mongoose.model('${firstCharToUpperCase(name)}', ${firstCharToUpperCase(name)}Schema)
 `
 
-const fileName = `coursesModels.js`;
+const fileName = `${name}Models.js`;
 
 const replaceWord = `
-Ipsum1=Steve Jobs,
-Ipsum2=Bill Gates,
-Ipsum3=${process.argv[3]},
-Ipsum4=John Doe
 `;
 
 const directory = `nodecrud/models`;
 
 exports.generateModels = function () {
-    create(sampleText, fileName, replaceWord, directory);
+   create(sampleText, fileName, replaceWord, directory);
 }
