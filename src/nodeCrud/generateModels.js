@@ -3,7 +3,6 @@ const name = nameFromCmd(process.argv[3]);
 
 const sampleText = `
 const mongoose = require('mongoose');
-const slugify = require('slugify');
 
 const ${firstCharToUpperCase(name)}Schema = new mongoose.Schema({
   <loop>
@@ -21,7 +20,7 @@ const fileName = `${name}Models.js`;
 const replaceWord = `
 `;
 
-const directory = `nodecrud/models`;
+const directory = `models`;
 
 exports.generateModels = function () {
    create(sampleText, fileName, replaceWord, directory);

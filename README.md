@@ -67,3 +67,15 @@ program
 
 - 5. now in src folder that you create 
 - 6. 
+
+
+```shell
+
+.catch((err) => {
+  console.error('An error happened:');
+  console.error(err);
+  process.exit(127);
+});
+
+```
+
