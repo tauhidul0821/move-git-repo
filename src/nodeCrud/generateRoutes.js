@@ -7,36 +7,33 @@ const router = express.Router();
 const { get${upperCaseName}s,get${upperCaseName},create${upperCaseName},update${upperCaseName},delete${upperCaseName} } = require('../controllers/${name}Controllers');
 
 /**
- * @swagger
- * components:
- *   schemas:
- *     ${upperCaseName}:
- *       type: object
- *       required:
- *         - title
- *         - author
- *       properties:
- *         id:
- *           type: string
- *           description: The auto-generated id of the ${name}
- *         title:
- *           type: string
- *           description: The ${name} title
- *         author:
- *           type: string
- *           description: The ${name} author
- *       example:
- *         id: d5fE_asz
- *         title: The New Turing Omnibus
- *         author: Alexander K. Dewdney
- */
+* @swagger
+* components:
+*   schemas:
+*     ${upperCaseName}:
+*       type: object
+*       required:
+*         <loop>
+*         - property
+*         </loop>
+*       properties:
+*       <loop>
+*          property:
+*            type: typeName,
+*            description: The ${name} property
+*        </loop>
+*       example:
+*          <loop>
+*             property: typeName
+*          </loop>
+*/
 
- /**
-  * @swagger
+/**
+* @swagger
   * tags:
   *   name: ${upperCaseName}s
   *   description: The ${name}s API
-  */
+*/
 
 
 /**
@@ -69,14 +66,14 @@ router.get('/',get${upperCaseName}s);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/${upperCaseName}s'
+ *             $ref: '#/components/schemas/${upperCaseName}'
  *     responses:
  *       200:
  *         description: The book was successfully created
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/${upperCaseName}s'
+ *               $ref: '#/components/schemas/${upperCaseName}'
  *       500:
  *         description: Some server error
  */
