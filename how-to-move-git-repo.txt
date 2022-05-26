@@ -1,4 +1,6 @@
-step 1 # git remote -v
+step 1 $ git remote -v
+$ git remote rm origin
+$ git remote -v
 step 2 # git remote add origin https://github.com/bs-23/code-generator.git
 step 3 # git remote -v
 step 4 # git fetch
