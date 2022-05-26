@@ -5,30 +5,32 @@ git remote -v
 ```
 
 - step 2
-``
+````
 git remote rm origin
-``
+````
 
 - step 3
-``
+````
 git remote -v
-``
+````
 - step 4
-``
+````
 git remote add origin https://github.com/bs-23/code-generator.git
-``
+````
 - step 5
-``
+````
 git remote -v
-``
+````
 - step 6
-``
+````
 git fetch
-``
+````
 
-``
+````
 step 5 # git push -f origin master
-``
+````
+
+
 step 1: see your old origin url
 step 2: remove your old url
 step 3: now add new origin
