@@ -26,8 +26,9 @@ git remote -v
 git fetch
 ````
 
+- step 7
 ````
-step 5 # git push -f origin master
+git push -f origin master
 ````
 
 
